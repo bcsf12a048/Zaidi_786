@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutmain.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h2 id="path">Logga In</h2>
+    <br />
+</div>
+
+
+<div class="col-lg-8">
+
+    <!-- Form Start -->
+
+    <form method="post" action="/Client/Login">
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="col-sm-4 form-group">
+                    </div>
+                   
+                  
+                    <div class="col-sm-4 form-group">
+                    </div>
+
+
+                </div>
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-4 form-group">
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        &nbsp;
+                    </div>
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-2 form-group">
+                    </div>
+
+                    <div class="col-sm-8 form-group">
+                        <span id="sp" class="alert-danger">@Session["span"]</span>
+                    </div>
+
+                    <div class="col-sm-2 form-group">
+                      
+                    </div>
+
+                </div>
+
+                <!-- 4th r -->
+
+                <div class="row" id="frm_pad">
+
+                    <div class="col-sm-2 form-group">
+
+                    </div>
+
+                    <div class="col-sm-8 form-group">
+                        <input class="form-control input-lg focus" id="" name="username" placeholder="Användarnamn" type="text">
+                    </div>
+                    <div class="col-sm-2 form-group">
+                    </div>
+
+
+
+                </div>
+
+                <!-- 5th r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-2 form-group">
+                    </div>
+                    <div class="col-sm-8 form-group">
+                        <input class="form-control input-lg focus" id="" name="pin" placeholder="Stift" type="password">
+                    </div>
+                    <div class="col-sm-2 form-group">
+
+                    </div>
+                </div>
+
+                <!-- 6th r -->
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-3 form-group">
+
+                        <a href="#" id="" data-toggle="modal" data-target="#signupModal"><span class="glyph-icon flaticon-account"></span> Registrera Dig</a>
+
+                    </div>
+                </div>
+
+                <!-- 7th r -->
+                <div class="row" id="frm_pad" style="padding-bottom:12px;">
+
+                </div>
+                <!-- 8th r -->
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+                <button class="btn btn-success btn-rounded pull-right" type="submit">Logga In</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+

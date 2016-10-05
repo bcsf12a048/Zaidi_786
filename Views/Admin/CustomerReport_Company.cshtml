@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "CustomerReport_Company";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3 id="path">Rapporter&gt; Kundrapporter&gt; Företag </h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+
+    <ul id="myTab" class="nav nav-tabs">
+        <li class=""><a id="b1" href="/Admin/CustomerReport_Private">Privat</a></li>
+        <li class="active"><a id="b2" href="/Admin/CustomerReport_Company">Företag</a></li>
+    </ul>
+    <!-- Form Start -->
+    
+    
+
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+        
+            <!-- 1st r -->
+            <div class="row" id="frm_pad" style="padding-top:12px">
+                <div class="col-sm-4 form-group">
+                    <input class="form-control input-lg focus" id="Licenseplat" name="" placeholder="Sök" type="text">
+                </div>
+            </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+                <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search3()">Sök</button>
+                <script>
+
+                    function Search3() {
+
+                        var LicensePlate = $("#Licenseplat").val().toString();
+
+
+                        $.getJSON("/Admin/SearchResult321",
+
+                            {
+
+                                LicensePlate: LicensePlate
+                            },
+
+                            function (data) {
+                               // alert(data.length);
+                              //  console.log(data);
+                                
+                                if (data != null) {
+                                    var str = "";
+                                    for (var i = 0; i < data.length; i++)
+                                    {
+                                        str += "<tr>"
+                                        str += "<td id='r" + i + "'>" + data[i].LicensePlate + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].date + "</td>";
+                                    //    str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
+                                        str += "</tr>";
+                                    }
+
+                                }
+                                else if (data == false)
+                                {
+                                    alert("Sorrry no record");
+                                }
+                                $('#abcd').html(str);
+                            });
+
+                    };
+                </script>
+
+            </div>
+</div>
+
+            <table class="table table-striped">
+                <caption>&nbsp;</caption>
+                <thead>
+                    <tr>
+                        <th>Registreringsnummer</th>
+                        <th>Chassinummer</th>
+                        <th>Datum</th>
+                        <th>Pris</th>
+
+                    </tr>
+                </thead>
+                <tbody id="abcd"></tbody>
+            </table>
+        </div>
+</div>

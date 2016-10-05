@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "OrderReport_cmpy";
+    Layout = "~/Views/Shared/_LayoutClientCompany.cshtml";
+}
+
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3 id="path">REPORTS&gt;  ORDER REPORT</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+
+    <!-- Form Start -->
+
+    <form>
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad" style="padding-top:15px">
+
+                    <div class="form-group col-sm-4 ">
+                        <select id="alii" name="" class="form-control ">
+                            <option>Service Category</option>
+                            <option value="Tvätta Services">Tvätta Services</option>
+                            <option value="Paint jobb">Paint jobb</option>
+                            <option value="Reparation">Reparation</option>
+                            <option value="Renovering">Renovering</option>
+                            <option value="Kontroll/Check">Kontroll/Check</option>
+                            <option value="Däck">Däck</option>
+                            <option value="Service">Service</option>
+                            <option value="Kontroll">Kontroll</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad">
+                   
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="liplate" name="" placeholder="Registreringsskylt" type="text">
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="chanum" name="" placeholder="Chassinummer" type="text">
+                    </div>
+
+                </div>
+
+                <!-- 8th r -->
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+                <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Searchh()">Sök</button>
+                <script>
+
+                    function Searchh() {
+
+                        var Cate = $("#alii").val().toString();
+                        var liplate = $("#liplate").val().toString();
+                        var chanum = $("#chanum").val().toString();
+                      //  alert("oka");
+
+                        $.getJSON("/Client/SearchResult_cmpy",
+
+                            {
+
+                                Cate: Cate,
+                                liplate: liplate,
+                                chanum: chanum
+                            },
+
+                            function (data) {
+                             //    alert(data.length);
+                              //  console.log(data);
+                                if (data != null) {
+
+                                    var str = " ";
+                                    var str1 = " ";
+                                    for (var i = 0; i < data.length; i++) {
+                                        str += "<tr>"
+                                        str += "<td id='r" + i + "'>" + data[i].order_no + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].date + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].LicensePlate + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>";
+                                        str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
+
+                                        str += "</tr>";
+                                    }
+
+                                }
+                                else if (data == false) {
+                                    alert("Sorrry no record");
+                                }
+                                $('#t1').html(str);
+                            });
+
+                    };
+                </script>
+
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;" id="t11">
+
+    <table id="myTable" class="table table-striped">
+        <caption>&nbsp;</caption>
+        <thead>
+            <tr>
+                <th>Order&nbsp;Antal</th>
+                <th>Datum/tid</th>
+                <th>Licens&nbsp;Plate</th>
+                <th>Chassi&nbsp;Antal</th>
+                <th>Pris</th>
+
+            </tr>
+        </thead>
+
+        <tbody id="t1"></tbody>
+    </table>
+
+</div>

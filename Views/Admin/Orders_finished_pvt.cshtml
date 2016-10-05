@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Orders_finished_pvt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3 id="path">Ordrar &gt; Avslutade Ordrar &gt; Privat</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a id="b1" href="/Admin/Orders_finished_pvt">Privat</a></li>
+        <li class=""><a id="b2" href="/Admin/Orders_finished_cmpy">Företag</a></li>
+    </ul>
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>Order&nbsp;Nummer</th>
+                    <th>Reg&nbsp;Nr</th>
+                    <th>Chassi&nbsp;Nr</th>
+                    <th>För&nbsp;Namn</th>
+                    <th>Efter&nbsp;Namn</th>
+                    <th>Telefon&nbsp;</th>
+                    <th>Mobil</th>
+                    <th>E-post</th>
+                    <th>Adress</th>
+                    <th>Ort</th>
+                    <th>Tjänste&nbsp;kategori</th>
+                    <th>Postkod</th>
+                    <th>Län</th>
+              
+                    <th>Valda &nbsp;Tjänster</th>
+                    <th>Beskrivning</th>
+                    <th>Status</th>
+                    <th>anvandarNamn</th>
+                    <th>Datum</th>
+                    <th>Åtgärd</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.LicensePlate</td>
+                        <td>@x.ChassiNumber</td>
+                        <td>@x.FirstName</td>
+                        <td>@x.LastName</td>
+                        <td>@x.PhoneNumbaer</td>
+                        <td>@x.Mobile</td>
+                        <td>@x.Email</td>
+                        <td>@x.Address</td>
+                        <td>@x.City</td>
+                        <td>@x.ChooseServiceCategory</td>
+                        <td>@x.PostCode</td>
+                        <td>@x.County</td>
+              
+                        <td>@x.ChosenService</td>
+                        <td>@x.Description</td>
+                        <td>@x.status_</td>
+                        <td>@x.username</td>
+                        <td>@x.date</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Admin/Orders_finished_pvt_update/@x.order_no">Edit</a></li>
+                                    <li><a href="/Admin/Invoice_create_pvt/@x.order_no">Invoice</a></li>
+                                    <li><a href="/Admin/Orders_finished_pvt_delete/@x.order_no">Delete</a></li>
+
+                                </ul>
+                            </div>
+                        </td>
+                        
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

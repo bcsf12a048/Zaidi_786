@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Service_newpkg_cmpy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3>Mina Tjänster &gt;Lägg Till Ny Tjänst &gt; Företag</h3>
+    <br />
+</div>
+
+<div class="col-lg-12">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class=""><a id="b1" href="/Admin/Service_newpkg_pvt">Privat</a></li>
+        <li class="active"><a id="b2" href="/Admin/Service_newpkg_cmpy">Företag</a></li>
+    </ul>
+
+
+    <!-- Form Start -->
+    <form method="post" action="/Admin/Service_newpkg_cmpy_save">
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="form-group col-sm-4 ">
+                        <select name="ChooseCategory" class="form-control " id="" required>
+                            <option >Service Kategori</option>
+                            <option value="Wash Services">Tvätta Tjänster</option>
+                            <option value="Paint job">Lack</option>
+                            <option value="Reparation">Gottgörelse</option>
+                            <option value="Refurbishing">Renovering</option>
+                            <option value="Control/Check">Kontrollera/kolla upp</option>
+                            <option value="Tires">Däck</option>
+                            <option value=" Service"> Service</option>
+                            <option value="Inspection">Inspektion</option>
+                        </select>
+                    </div>
+                    
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="ServiceName" placeholder="Tjänst" type="text" required>
+                    </div>
+
+                </div>
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="first_PriceExVAT" name="PriceExVAT" placeholder="Pris Ex Moms" type="number" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="second_PriceIncVAT" name="PriceIncVAT" placeholder="Pris Inc Moms" type="number" required>
+                    </div>
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad" style="padding-bottom:12px;">
+                    
+                    <div class="form-group col-sm-4 ">
+                        <select name="CompanyName" class="form-control " id="" required>
+                            <option>Företags Namn</option>
+                            @foreach (var x in Model)
+                            {
+                                <option value="@x.companyname">@x.companyname</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 4th r -->
+
+
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+                <button class="btn btn-success btn-rounded pull-right"  type="submit"> Spara</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+

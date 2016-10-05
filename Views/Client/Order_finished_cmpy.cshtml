@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Order_finished_cmpy";
+    Layout = "~/Views/Shared/_LayoutClientCompany.cshtml";
+}
+
+<div class="">
+    
+    <h3 id="path">Alla Ordrar &gt; Avslutade Ordrar &gt; Företag</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>Order&nbsp;Nummer</th>
+                    <th>Reg &nbsp;Nr</th>
+                    <th>Chassi &nbsp;Nr</th>
+                    <th>Service&nbsp;Kategori</th>
+                    <th>Välj &nbsp;Företag</th>
+                    <th>Tjänster</th>
+                    <th>Kontakt&nbsp;Person</th>
+                    <th>Valda &nbsp;Tjänster</th>
+                    <th>Beskrivning</th>
+                    <th>Användarnamn</th>
+                    <th>Datum</th>
+               
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.LicensePlate</td>
+                        <td>@x.ChassiNumber</td>
+                        <td>@x.ServiceCategory</td>
+                        <td>@x.ChooseCompany</td>
+                        <td>@x.Service</td>
+                        <td>@x.ContactPerson</td>
+                       
+                        <td>@x.ChosenService</td>
+                        <td>@x.Description </td>
+                        <td>@x.username</td>
+                        <td>@x.date</td>
+
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

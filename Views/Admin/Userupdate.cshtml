@@ -1,0 +1,81 @@
+﻿@model CarService.Models.User
+@{
+    ViewBag.Title = "Userupdate";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3 id="path">Ny Order &gt; Företag</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+    <form method="post" action="/Admin/Userupdate_update/@Model.Id">
+        <!-- Form Start -->
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.username" name="username" placeholder="AnvandarNamn" type="text" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" value="@Model.pin" id="" name="pin" placeholder="Stift" type="text" required>
+                    </div>
+
+                    <div class="form-group col-sm-4 ">
+                        <select name="role"  class="form-control " id="">
+                            <option>@Model.role </option>
+                            <option value="admin">Admin</option>
+                            <option value="client">Client</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad">
+                 
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="firstname" value="@Model.firstname" placeholder="Förnamn" type="text" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="lastname" value="@Model.lastname" placeholder="Efternamn" type="text" required>
+                    </div>
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad">
+                   
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="type" placeholder="Type" value="@Model.type" type="text" required>
+                    </div>
+
+                </div>
+
+                <!-- 4th r -->
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+
+                <button class="btn btn-success btn-rounded pull-right" type="submit"> Spara</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+

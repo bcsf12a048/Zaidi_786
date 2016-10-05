@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Invoice_my_cmpy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3>FAKTURA &gt;MIN FAKTURA  &gt; FöRETAG</h3>
+    <br />
+</div>
+
+<div class="col-lg-12">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a id="b1" href="/Admin/Invoice_my_pvt_all">Privat</a></li>
+        <li class=""><a id="b2" href="/Admin/Invoice_my_cmpy">Företag</a></li>
+    </ul>
+
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+        <!-- 1st r -->
+        <form action="#" method="post">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="todate" placeholder="t.o.m Datum" type="date">
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="fromdate" placeholder="f.o.m Datum" type="date">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row" id="frm_pad" style="padding-top:15px;">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-success btn-rounded pull-right" type="submit">Sok</button>
+                </div>
+
+            </div>
+        </form>
+
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a id="b1" href="/Admin/Invoice_my_cmpy">Allt</a></li>
+            <li class=""><a id="b2" href="/Admin/Invoice_my_cmpy_paid">betald</a></li>
+            <li class=""><a id="b2" href="/Admin/Invoice_my_cmpy_unpaid">obetald</a></li>
+        </ul>
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>Order&nbsp;Nummer</th>
+                    <th>Företag&nbsp;Nummer</th>
+                    <th>Ordrar&nbsp;f.o.m</th>
+                    <th>Ordrar&nbsp;t.o.m</th>
+                    <th>Faktura&nbsp;Nummer</th>
+                    <th>Faktura&nbsp;Datum</th>
+                    <th>OCR</th>
+                    <th>Förfallo datum</th>
+                    <th>Vår &nbsp;Referens</th>
+                    <th>Kontakt&nbsp;Person</th>
+                    <th>Dröjsmål</th>
+                    <th>Aterstoden &nbsp;Avgif</th>
+                    <th>Status</th>
+                    <th>UserName</th>
+                    <th>Åtgärd</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.CompanyNumber</td>
+                        <td>@x.OrdersForm</td>
+                        <td>@x.Orderto</td>
+                        <td>@x.Invoice_no</td>
+                        <td>@x.InvoiceDate</td>
+                        <td>@x.OCR</td>
+                        <td>@x.ExpDate</td>
+                        <td>@x.OurReference</td>
+                        <td>@x.ContactPerson</td>
+                        <td>@x.Interest</td>
+                        <td>@x.Reminderfee</td>
+                        <td>@x.status</td>
+                        <td>@x.username</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Admin/Invoice_my_cmpy_update/@x.Invoice_no">Edit</a></li>
+                                    <li><a href="/Admin/Invoice_my_cmpy_delete/@x.Invoice_no">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+

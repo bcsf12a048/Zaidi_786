@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Orders_pending_pvt";
+    Layout = "~/Views/Shared/_LayoutClientPrivate.cshtml";
+}
+
+<div class="">
+
+    <h3 id="path">Alla Ordrar &gt; Inkommande Ordrar &gt; Privat</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>Order&nbsp;Nummer</th>
+                    <th>Reg&nbsp;Nr</th>
+                    <th>Chassi&nbsp;Nr</th>
+                    <th>För&nbsp;Namn</th>
+                    <th>Efter&nbsp;Namn</th>
+                    <th>Telefon&nbsp;</th>
+                    <th>Mobil</th>
+                    <th>E-Post</th>
+                    <th>Adress</th>
+                    <th>Ort</th>
+                    <th>Service&nbsp;Kategori</th>
+                    <th>Postkod</th>
+                    <th>Län</th>
+             
+                    <th>Valda &nbsp;Tjänster</th>
+                    <th>Beskrivning </th>
+                    <th>Datum</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.LicensePlate</td>
+                        <td>@x.ChassiNumber</td>
+                        <td>@x.FirstName</td>
+                        <td>@x.LastName</td>
+                        <td>@x.PhoneNumbaer</td>
+                        <td>@x.Mobile</td>
+                        <td>@x.Email</td>
+                        <td>@x.Address</td>
+                        <td>@x.City</td>
+                        <td>@x.ChooseServiceCategory</td>
+                        <td>@x.PostCode</td>
+                        <td>@x.County</td>
+                       
+                        <td>@x.ChosenService</td>
+                        <td>@x.Description</td>
+                        <td>@x.date</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

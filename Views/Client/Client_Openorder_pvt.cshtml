@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Client_Openorder_pvt";
+    Layout = "~/Views/Shared/_LayoutClientPrivate.cshtml";
+}
+
+<div class="">
+
+    <h3 id="path">ALLA ORDRAR &gt; Oavslutade Ordrar &gt; PRIVAT</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+    
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>För&nbsp;Ant</th>
+                    <th>Licens&nbsp;Plate</th>
+                    <th>Chassi&nbsp;Number</th>
+                    <th>Första&nbsp;Namn</th>
+                    <th>Last&nbsp;Namn</th>
+                    <th>Telefon&nbsp;Antal</th>
+                    <th>Mobil</th>
+                    <th>E-post</th>
+                    <th>Adress</th>
+                    <th>Stad</th>
+                    <th>Service&nbsp;Kategori</th>
+                    <th>Postnummer</th>
+                    <th>Grevskap</th>
+               
+                    <th>Vald&nbsp;Service</th>
+                    <th>Beskrivning</th>
+                    
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.LicensePlate</td>
+                        <td>@x.ChassiNumber</td>
+                        <td>@x.FirstName</td>
+                        <td>@x.LastName</td>
+                        <td>@x.PhoneNumbaer</td>
+                        <td>@x.Mobile</td>
+                        <td>@x.Email</td>
+                        <td>@x.Address</td>
+                        <td>@x.City</td>
+                        <td>@x.ChooseServiceCategory</td>
+                        <td>@x.PostCode</td>
+                        <td>@x.County</td>
+                      
+                        <td>@x.ChosenService</td>
+                        <td>@x.Description</td>
+                     
+                        
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

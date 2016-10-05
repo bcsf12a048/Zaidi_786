@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Orders_open_cmpy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3 id="path">Ordrar &gt; Oavslutade Ordrar &gt; Företag</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class=""><a id="b1" href="/Admin/Orders_open_pvt">Privat</a></li>
+        <li class="active"><a id="b2" href="/Admin/Orders_open_cmpy">Företag</a></li>
+    </ul>
+    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+        <table class="table table-striped">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+                    <th>Order&nbsp;Nummer</th>
+                    <th>Reg&nbsp;Nr</th>
+                    <th>Chassi&nbsp;Nr</th>
+                    <th>Tjänste&nbsp;Kategori</th>
+                    <th>välja &nbsp;Företag</th>
+                    <th>Service</th>
+                    <th>Kontakt&nbsp;Person</th>
+                    <th>Valda &nbsp;Tjänster</th>
+                    <th>Beskrivning </th>
+                    <th>Status</th>
+                    <th>AnvandarNamn</th>
+                    <td>Datun</td>
+                    <th>Åtgärd</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.order_no</td>
+                        <td>@x.LicensePlate</td>
+                        <td>@x.ChassiNumber</td>
+                        <td>@x.ServiceCategory</td>
+                        <td>@x.ChooseCompany</td>
+                        <td>@x.Service</td>
+                        <td>@x.ContactPerson</td>
+                        <td>@x.ChosenService</td>
+                        <td>@x.Description </td>
+                        <td>@x.Status</td>
+                        <td>@x.username</td>
+                        <td>@x.date</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Admin/Orders_open_cmpy_update/@x.order_no">Redigera</a></li>
+                                    <li><a href="/Admin/Orders_open_cmpy_delete/@x.order_no">Ta bort</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                      
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

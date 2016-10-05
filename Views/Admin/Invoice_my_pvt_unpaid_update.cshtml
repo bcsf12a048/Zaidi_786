@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Invoice_my_pvt_unpaid_update";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model CarService.Models.Invoice_crt_pvt
+
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3>Faktura &gt;Min Faktura &gt; Update &gt; Privat</h3>
+    <br />
+</div>
+
+<div class="col-lg-12">
+
+    <!-- Form Start -->
+    <form action="/Admin/Invoice_my_pvt_unpaid_update_update/@Model.Invoice_no" method="post">
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.Order_no" name="OrderNumber" placeholder="Order Nummer" type="text" readonly>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.Invoice_no" name="Invoice_no" placeholder="Faktura Nummer" type="text" readonly>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.OCR" name="OCR" placeholder="OCR" type="text" required>
+                    </div>
+
+
+                </div>
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.InvoiceDate" name="InvoiceDate" placeholder="Faktura Datum" type="date" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.Exp_Date" name="Exp_Date" placeholder="Förfallodatum" type="date" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.OurReference" name="OurReference" placeholder="Vår Referens" type="text" required>
+                    </div>
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad" style="padding-bottom:12px;">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.IntrestRate" name="IntrestRate" placeholder="Dröjsmålsränta" type="text" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" value="@Model.IntrestRate" name="RemainderFee" placeholder="Påminnelseavgift" type="text" required>
+                    </div>
+
+                    <div class="form-group col-sm-4 ">
+                        <select name="status" class="form-control " id="" required>
+                            <option value="@Model.status">@Model.status</option>
+                            <option value="paid">Betald</option>
+                            <option value="unpaid">Obetald</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+                <button class="btn btn-success btn-rounded pull-right" type="submit"> Spara</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+

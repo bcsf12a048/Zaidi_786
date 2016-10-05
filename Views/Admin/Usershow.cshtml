@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Usershow";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+    <table class="table table-striped">
+        <caption>&nbsp;</caption>
+        <thead>
+            <tr>
+               
+                <th>AnvandarNamn</th>
+                <th>Stift</th>
+                <th>För&nbsp;Namn</th>
+                <th>Efter&nbsp;Namn</th>
+                <th>Role</th>
+                <th>type</th>
+                <th>Id</th>
+                 <th>Åtgärd</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.username</td>
+                    <td>@x.pin</td>
+                    <td>@x.firstname</td>
+                    <td>@x.lastname</td>
+                    <td>@x.role</td>
+                    <td>@x.type</td>
+                    <td>@x.Id</td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Admin/Userupdate/@x.Id">Redigera</a></li>
+                                <li><a href="/Admin/Userdelete/@x.Id">Ta bort</a></li>
+                            </ul>
+                        </div>
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>

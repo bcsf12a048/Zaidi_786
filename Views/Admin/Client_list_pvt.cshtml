@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Client_list_pvt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="page-title">
+    <i class="icon-custom-left"></i>
+
+    <h3>Ny Order &gt; Kundlista &gt; Privat</h3>
+    <br />
+</div>
+<div class="col-lg-12">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a id="b1" href="/Admin/Client_list_pvt">Privat</a></li>
+        <li class=""><a id="b2" href="/Admin/Client_list_cmpy">Företag</a></li>
+    </ul>
+    <!-- Form Start -->
+    <div id="" class="container-fluid " style="background-color:white">
+        <div class="col-sm-12">
+
+            <!-- 1st r -->
+
+            <div class="row" id="frm_pad" style="padding-top:12px">
+                <div class="col-sm-4 form-group">
+
+                </div>
+
+                <div class="col-sm-4 form-group">
+
+                </div>
+                <div class="col-sm-4 form-group">
+                    <input class="form-control input-lg focus" id="" name="" placeholder="Search" type="text">
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+
+            <table class="table table-striped">
+                <caption>&nbsp;</caption>
+                <thead>
+                    <tr>
+                        
+                        <th>Registrerings&nbsp;Nummer</th>
+                        <th>Chassi&nbsp;Nummer</th>
+                        <th>För&nbsp;Namn</th>
+                        <th>Efter&nbsp;Namn</th>
+                        <th>Telefon&nbsp;</th>
+                        <th>Mobil</th>
+                        <th>E-post</th>
+                        <th>Adress&nbsp;</th>
+                        <th>Ort</th>
+                        <th>Postkod</th>
+                        <th>Län</th>
+                        <th>Id</th>
+                        <th>Åtgärd</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.Licenseplate</td>
+                            <td>@x.ChassiNumber</td>
+                            <td>@x.FirstName</td>
+                            <td>@x.LastName</td>
+                            <td>@x.PhoneNumber</td>
+                            <td>@x.Mobile</td>
+                            <td>@x.Email</td>
+                            <td>@x.Street_Address</td>
+                            <td>@x.City</td>
+                            <td>@x.Postcode</td>
+                            <td>@x.County</td>
+                            <td>@x.Id</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Admin/Client_list_pvt_update/@x.Id">Edit</a></li>
+                                        <li><a href="/Admin/Client_list_pvt_delete/@x.Id">Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+    

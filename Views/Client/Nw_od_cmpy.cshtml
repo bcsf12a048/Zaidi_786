@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Nw_od_cmpy";
+    Layout = "~/Views/Shared/_LayoutClientCompany.cshtml";
+}
+
+<div class="">
+  
+    <h3 id="path">NY ORDER &gt; Företag</h3>
+    <br />
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+    <form method="post" action="/Client/Nw_od_cmpy_save">
+        <!-- Form Start -->
+        <div id="" class="container-fluid " style="background-color:white">
+            <div class="col-sm-12">
+
+                <!-- 1st r -->
+
+                <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="LicensePlate" placeholder="Registreringsnummer" type="text" required>
+                    </div>
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="ChassiNumber" placeholder="Chassinummer" type="text" required>
+                    </div>
+
+                    <div class="form-group col-sm-4 ">
+                        <select name="ServiceCategory" class="form-control " id="" required>
+                            <option>Tjänsten Kategori</option>
+                            @foreach(var x in Model)
+                            { 
+                            <option value="@x.ChooseCategory">@x.ChooseCategory</option>
+                            }
+                                </select>
+                    </div>
+
+                </div>
+
+                <!-- 2nd r -->
+
+                <div class="row" id="frm_pad">
+                  
+
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="Service" placeholder="Tjänst" type="text" required>
+                    </div>
+
+
+                </div>
+
+                <!-- 3rd r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" id="" name="ContactPerson" placeholder="Kontaktperson" type="text" required>
+                    </div>
+
+                    <div class="form-group col-sm-4 ">
+                        <select name="ChooseCompany" class="form-control " id="" required>
+                            <option>Välj Företag</option>
+                            @foreach (var x in Model)
+                            {
+                                <option value="@x.CompanyName">@x.CompanyName</option>
+                            }
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <!-- 4th r -->
+
+                <div class="row" id="frm_pad">
+                    <div class="col-sm-12 form-group">
+                        <textarea style="height:100px;" class="form-control input-lg focus" id="" name="ChosenService" placeholder="Valda Tjänster" rows="5"></textarea>
+                    </div>
+                </div>
+                <!-- 5th r -->
+                <div class="row" id="frm_pad" style="padding-bottom:12px;">
+                    <div class="col-sm-12 form-group">
+                        <textarea style="height:100px;" class="form-control input-lg focus" id="" name="Noteringar" placeholder="Beskrivning" rows="5"></textarea>
+                    </div>
+                </div>
+                <!-- 6th r -->
+
+            </div>
+        </div>
+        <div class="row" id="frm_pad" style="padding-top:15px;">
+            <div class="col-sm-12 form-group">
+
+                <button class="btn btn-success btn-rounded pull-right" type="submit"> Spara</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
