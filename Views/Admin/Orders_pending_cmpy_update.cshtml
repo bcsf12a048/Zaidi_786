@@ -34,9 +34,16 @@
 
                     <div class="form-group col-sm-4 ">
                         <select name="ServiceCategory" class="form-control " id="" required>
-                            <option> @Model.ServiceCategory</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
+                            <option value="@Model.ServiceCategory"> @Model.ServiceCategory</option>
+                           
+                            <option value="Tvätta Tjänster">Tvätta Tjänster</option>
+                            <option value="Lack">Lack</option>
+                            <option value="Reparation">Reparation</option>
+                            <option value="Renovering">Renovering</option>
+                            <option value="Kontrollera/kolla">Kontrollera/kolla</option>
+                            <option value="Däck">Däck</option>
+                            <option value=" Service"> Service</option>
+                            <option value="Inspektion">Inspektion</option>
                         </select>
                     </div>
 
@@ -46,11 +53,9 @@
 
                 <div class="row" id="frm_pad">
                     <div class="form-group col-sm-4 ">
-                        <select name="ChooseCompany" class="form-control " id="" required>
-                            <option>@Model.ChooseCompany</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                        </select>
+                        
+                        <input class="form-control input-lg focus" id="" value="@Model.ChooseCompany" name="ChooseCompany" placeholder="Company" type="text" required >
+
                     </div>
 
                     <div class="col-sm-4 form-group">
@@ -60,9 +65,9 @@
                     <div class="form-group col-sm-4 ">
                         <select name="Status" class="form-control " id="" required>
                             <option>@Model.Status</option>
-                            <option value="open">Öppna</option>
-                            <option value="pending">Inkommande</option>
-                            <option value="finished">Avslutade</option>
+                            <option value="öppen">Öppna</option>
+                            <option value="avvaktan">Avvaktan</option>
+                            <option value="färdiga">Färdiga</option>
                         </select>
                     </div>
                 </div>
@@ -79,7 +84,7 @@
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" value="@Model.order_no" name="order_no" placeholder="Order Nummer" type="text" readonly>
+                        <input class="form-control input-lg focus" id="" value="@Model.order_no" name="order_no" placeholder="Order Nummer" type="text" readonly >
                     </div>
                 </div>
 

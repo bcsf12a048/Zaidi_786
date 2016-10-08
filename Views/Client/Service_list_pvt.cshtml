@@ -24,28 +24,64 @@
             <div class="row" id="frm_pad" style="padding-top:12px">
 
                 <div class="form-group col-sm-6 ">
-                    <select name="" class="form-control " id="">
+                    <select name="" class="form-control " id="aali">
                         <option value="">Service Kategori</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
+                      @foreach(var z in Model)
+                      {
+                          <option value="@z.Service_add_pakg_Pvt.ChooseCategory">@z.Service_add_pakg_Pvt.ChooseCategory</option>
+                          
+                      }
                     </select>
 
 
 
                 </div>
+                <div class="col-sm-4 form-group">
+                    <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search_service_list_pvt_client()">Sok</button>
+                    <script>
 
+                        function Search_service_list_pvt_client() {
+                            
+                            var Cate = $("#aali").val().toString();
 
-                <div class="form-group col-sm-6 ">
-                    <select name="" class="form-control " id="">
-                        <option value="">Service Type</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
-                    </select>
+                            
+                            $.getJSON("/Client/SearchResult_service_list_pvt_client",
 
+                                {
+
+                                    Cate: Cate
+                                },
+
+                                function (data) {
+                                     alert(data.length);
+                                   console.log(data);
+                                    if (data != null) {
+
+                                        var str = " ";
+                                        var str1 = " ";
+                                        for (var i = 0; i < data.length; i++) {
+                                            str += "<tr>"
+                                            str += "<td id='r" + i + "'>" + data[i].order_no + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].z[0].ChooseCategory + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].z[0].ServiceName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].z[0].PriceIncVAT + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].username + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].LicensePlate + "</td>";
+                                            str += "</tr>";
+                                        }
+                                    }
+                                    else if (data == false) {
+                                        alert("Sorrry no record");
+                                    }
+                                    $('#service_pvt_client').html(str);
+                                });
+
+                        };
+                    </script>
 
 
                 </div>
-            </div>
         </div>
         <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
 
@@ -64,13 +100,13 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="service_pvt_client">
                     @foreach (var z in Model)
                     {
                         <tr>
-                             <td>@z.NwOd_private.order_no</td>
+                            <td>@z.NwOd_private.order_no</td>
                             <td>@z.Service_add_pakg_Pvt.ChooseCategory</td>
-                            
+
                             <td>@z.Service_add_pakg_Pvt.ServiceName</td>
                             <td>@z.Service_add_pakg_Pvt.PriceExVAT</td>
                             <td>@z.Service_add_pakg_Pvt.PriceIncVAT</td>

@@ -17,7 +17,7 @@
         <li class="active"><a id="b1" href="/Admin/Orders_finished_pvt">Privat</a></li>
         <li class=""><a id="b2" href="/Admin/Orders_finished_cmpy">Företag</a></li>
     </ul>
-    <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+    <div class="container-fluid  " style="background-color: white; overflow-y: auto; overflow-x: auto; height: 500px;">
 
         <table class="table table-striped">
             <caption>&nbsp;</caption>
@@ -34,6 +34,7 @@
                     <th>Adress</th>
                     <th>Ort</th>
                     <th>Tjänste&nbsp;kategori</th>
+                    <th>Service</th>
                     <th>Postkod</th>
                     <th>Län</th>
               
@@ -61,6 +62,7 @@
                         <td>@x.Address</td>
                         <td>@x.City</td>
                         <td>@x.ChooseServiceCategory</td>
+                        <td>@x.Service</td>
                         <td>@x.PostCode</td>
                         <td>@x.County</td>
               
@@ -73,9 +75,9 @@
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/Admin/Orders_finished_pvt_update/@x.order_no">Edit</a></li>
-                                    <li><a href="/Admin/Invoice_create_pvt/@x.order_no">Invoice</a></li>
-                                    <li><a href="/Admin/Orders_finished_pvt_delete/@x.order_no">Delete</a></li>
+                                    <li><a href="/Admin/Orders_finished_pvt_update/@x.order_no">Redigera</a></li>
+                                    <li><a href="/Admin/Invoice_create_pvt/@x.order_no">Faktura</a></li>
+                                    <li><a href="/Admin/Orders_finished_pvt_delete/@x.order_no">Radera</a></li>
 
                                 </ul>
                             </div>

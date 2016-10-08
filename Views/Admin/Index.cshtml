@@ -98,7 +98,15 @@
                     <div class="col-sm-4 form-group">
                         <input class="form-control input-lg focus" id="" name="County" placeholder="Län" type="text" required>
                     </div>
-               
+                    <div class="form-group col-sm-4 ">
+                        <select name="Service" class="form-control" id="" required>
+                            <option>Service</option>
+                            @foreach (var x in Model)
+                            {
+                                <option value="@x.ServiceName">@x.ServiceName</option>
+                            }
+                        </select>
+                    </div>
 
                 </div>
 

@@ -51,12 +51,18 @@
                   
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="Service" placeholder="Tjänste" type="text" required>
+                        <select name="Service" class="form-control " id="" required>
+                            <option value="">Service</option>
+                            @foreach (var x in Model)
+                            {
+                                <option value="@x.Service">@x.Service</option>
+                            }
+                        </select>
                     </div>
 
                     <div class="form-group col-sm-4 ">
                         <select name="ChooseCompany" class="form-control " id="" required>
-                            <option> Välja Företag</option>
+                            <option value=""> Välja Företag</option>
                             @foreach (var x in Model)
                             {
                                 <option value="@x.CompanyName">@x.CompanyName</option>

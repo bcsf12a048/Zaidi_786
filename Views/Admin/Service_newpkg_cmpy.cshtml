@@ -27,16 +27,16 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="form-group col-sm-4 ">
-                        <select name="ChooseCategory" class="form-control " id="" required>
-                            <option >Service Kategori</option>
-                            <option value="Wash Services">Tvätta Tjänster</option>
-                            <option value="Paint job">Lack</option>
-                            <option value="Reparation">Gottgörelse</option>
-                            <option value="Refurbishing">Renovering</option>
-                            <option value="Control/Check">Kontrollera/kolla upp</option>
-                            <option value="Tires">Däck</option>
+                        <select name="ChooseCategory"  class="form-control " id="" required>
+                            <option value="">Service Kategori</option>
+                            <option value="Tvätta Tjänster">Tvätta Tjänster</option>
+                            <option value="Lack">Lack</option>
+                            <option value="Reparation">Reparation</option>
+                            <option value="Renovering">Renovering</option>
+                            <option value="Kontrollera/kolla">Kontrollera/kolla</option>
+                            <option value="Däck">Däck</option>
                             <option value=" Service"> Service</option>
-                            <option value="Inspection">Inspektion</option>
+                            <option value="Inspektion">Inspektion</option>
                         </select>
                     </div>
                     
@@ -66,7 +66,7 @@
                     
                     <div class="form-group col-sm-4 ">
                         <select name="CompanyName" class="form-control " id="" required>
-                            <option>Företags Namn</option>
+                            <option value="">Företags Namn</option>
                             @foreach (var x in Model)
                             {
                                 <option value="@x.companyname">@x.companyname</option>

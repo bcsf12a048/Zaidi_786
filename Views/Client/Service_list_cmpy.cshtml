@@ -24,8 +24,10 @@
                 <div class="form-group col-sm-6 ">
                     <select name="" class="form-control " id="">
                         <option value="">Service Kategori</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
+                    @foreach (var x in Model)
+{
+    <option value="@x.Service_add_pakg_Company.ChooseCategory">@x.Service_add_pakg_Company.ChooseCategory</option>
+}
                     </select>
 
 

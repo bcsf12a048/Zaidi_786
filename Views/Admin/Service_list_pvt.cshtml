@@ -26,21 +26,76 @@
             <div class="row" id="frm_pad" style="padding-top:12px">
 
                 <div class="form-group col-sm-6 ">
-                    <select name="" class="form-control " id="">
-                        <option value="">Tjänste Kategori</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
+                    <select name="" class="form-control " id="alli">
+                        <option value="">TjänsteKategori</option>
+                        @foreach (var x in Model)
+                        {
+                            <option value="@x.ChooseCategory">@x.ChooseCategory</option>
+                        }
                     </select>
 
+                </div>
+                <div class="col-sm-4 form-group">
+                    <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search_service_list_pvt()">Sok</button>
+                    <script>
 
+                        function Search_service_list_pvt() {
+
+                            var Cate = $("#alli").val().toString();
+
+
+                            $.getJSON("/Admin/SearchResult_service_list_pvt",
+
+                                {
+
+                                    Cate: Cate
+                                },
+
+                                function (data) {
+                                    //   alert(data.length);
+                                    //console.log(data);
+                                    if (data != null) {
+
+                                        var str = " ";
+                                        var str1 = " ";
+                                        for (var i = 0; i < data.length; i++) {
+                                            str += "<tr>"
+                                            str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ChooseCategory + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ServiceName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].PriceExVAT + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].PriceIncVAT + "</td>";
+                                            str += "<td id='r" + i + "'>";
+                                            str += "<div class='dropdown'>";
+                                            str += "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Action<span class='caret'></span></button>";
+                                            str += "<ul class='dropdown-menu'>";
+                                            str += "<li><a href='/Admin/Service_list_pvt_update/" + data[i].Id + "'>Redigera</a></li>";
+                                            str += "<li><a href='/Admin/Service_list_pvt_delete/" + data[i].Id + "'>Radera</a></li>";
+                                            str += "</ul>";
+                                            str += "</div>"
+                                            str += "</td>";
+                                            str += "</tr>";
+                                        }
+                                    }
+                                    else if (data == false) {
+                                        alert("Sorrry no record");
+                                    }
+                                    $('#service_pvt').html(str);
+                                });
+
+                        };
+                    </script>
 
                 </div>
+
+
+
 
 
                 
             </div>
         </div>
-        <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+        <div class="container-fluid  " style="background-color: white; overflow-y: auto; overflow-x: auto; height: 500px;">
 
             <table class="table table-striped ">
                 <caption>&nbsp;</caption>
@@ -55,7 +110,7 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="service_pvt">
                     @foreach (var x in Model)
                     {
                         <tr>
@@ -64,7 +119,7 @@
                             <td>@x.ServiceName</td>
                             <td>@x.PriceExVAT</td>
                             <td>@x.PriceIncVAT</td>
-                            
+
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>

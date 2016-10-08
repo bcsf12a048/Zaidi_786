@@ -35,9 +35,9 @@
                     <div class="form-group col-sm-4 ">
                         <select name="status_" class="form-control " id="" required>
                             <option value="@Model.status_">@Model.status_</option>
-                            <option value="open">Oavslutade</option>
-                            <option value="pending">Inkommande</option>
-                            <option value="finished">Avslutade</option>
+                            <option value="öppen">Öppna</option>
+                            <option value="avvaktan">Avvaktan</option>
+                            <option value="färdiga">Färdiga</option>
                         </select>
                     </div>
                 </div>
@@ -87,8 +87,16 @@
                     <div class="form-group col-sm-4 ">
                         <select name="ChooseServiceCategory" class="form-control " id="" required>
                             <option value="@Model.ChooseServiceCategory">@Model.ChooseServiceCategory</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
+                          
+
+                            <option value="Tvätta Tjänster">Tvätta Tjänster</option>
+                            <option value="Lack">Lack</option>
+                            <option value="Reparation">Reparation</option>
+                            <option value="Renovering">Renovering</option>
+                            <option value="Kontrollera/kolla">Kontrollera/kolla</option>
+                            <option value="Däck">Däck</option>
+                            <option value=" Service"> Service</option>
+                            <option value="Inspektion">Inspektion</option>
                         </select>
                     </div>
 
@@ -105,6 +113,10 @@
                         <input class="form-control input-lg focus" value="@Model.County" id="" name="County" placeholder="Län" type="text" required>
                     </div>
                  
+                    <div class="col-sm-4 form-group">
+                        <input class="form-control input-lg focus" value="@Model.Service" id="" name="Service" placeholder="Län" type="text" required readonly>
+                    </div>
+
 
                 </div>
 

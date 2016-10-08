@@ -27,11 +27,11 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Licenseplat" name="" placeholder="Registreringsnummer" type="text" >
+                        <input class="form-control input-lg focus" id="Licenseplat" name="" placeholder="Registreringsnummer" type="text">
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="ChassiNumbr" name="" placeholder="Chassinummer" type="text" >
+                        <input class="form-control input-lg focus" id="ChassiNumbr" name="" placeholder="Chassinummer" type="text">
                     </div>
 
 
@@ -42,14 +42,14 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="FirstNme" name="" placeholder="Förnamn" type="text" >
+                        <input class="form-control input-lg focus" id="FirstNme" name="" placeholder="Förnamn" type="text">
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="LastNme" name="" placeholder="Efternamn" type="text" >
+                        <input class="form-control input-lg focus" id="LastNme" name="" placeholder="Efternamn" type="text">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="PhoneNumbr" name="" placeholder="Telefon" type="text" >
+                        <input class="form-control input-lg focus" id="PhoneNumbr" name="" placeholder="Telefon" type="text">
                     </div>
 
                 </div>
@@ -58,11 +58,11 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Mobil" name="" placeholder="Mobil" type="text" >
+                        <input class="form-control input-lg focus" id="Mobil" name="" placeholder="Mobil" type="text">
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Emal" name="" placeholder="E-post" type="text" >
+                        <input class="form-control input-lg focus" id="Emal" name="" placeholder="E-post" type="text">
                     </div>
                     
                 </div>
@@ -71,7 +71,7 @@
 
                 <div class="row" id="frm_pad">
                     <div class="col-sm-12 form-group">
-                        <input class="form-control input-lg focus" id="addres" name="" placeholder="Adress" type="text" >
+                        <input class="form-control input-lg focus" id="addres" name="" placeholder="Adress" type="text">
                     </div>
 
                 </div>
@@ -84,14 +84,14 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Postcod" name="" placeholder="Postkod" type="text" >
+                        <input class="form-control input-lg focus" id="Postcod" name="" placeholder="Postkod" type="text">
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Citty" name="" placeholder="Ort" type="text" >
+                        <input class="form-control input-lg focus" id="Citty" name="" placeholder="Ort" type="text">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="Countty" name="" placeholder="Län" type="text" >
+                        <input class="form-control input-lg focus" id="Countty" name="" placeholder="Län" type="text">
                     </div>
 
                 </div>
@@ -107,7 +107,7 @@
         <div class="row" id="frm_pad" style="padding-top:15px;">
             <div class="col-sm-12 form-group">
                 <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search2()">Sök</button>
-<script>
+            <script>
 
                     function Search2() {
 
@@ -143,13 +143,14 @@
                             },
 
                             function (data) {
-                               //  alert(data.length);
-                                //console.log(data);
+                             //  alert(data.length);
+                               // console.log(data);
                                 if (data != null) {
 
                                     var str = " ";
                                     var str1 = " ";
-                                    for (var i = 0; i < data.length; i++) {
+                                    for (var i = 0; i < data.length; i++)
+                                    {
                                         /* mNewObj = document.createElement('tr');
                                           mNewObj.id = "BBB" + 1;
                                           mNewObj.innerHTML = "<td id='r" + i + "'>" + data[i].date + "</td>;<td id='r" + i + "'>" + data[i].LicensePlate + "</td>;<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>;<td id='r" + i + "'>" + chanum + "</td>;";
@@ -161,10 +162,12 @@
                                         str += "<td id='r" + i + "'>" + data[i].date + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
                                         str += "</tr>";
+                                       
                                     }
 
                                 }
-                                else if (data == false) {
+                                else if (data == false)
+                                {
                                     alert("Sorry no record");
                                 }
                                 $('#abc').html(str);

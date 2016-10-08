@@ -22,11 +22,11 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="LicensePlate" placeholder="Registreringsnummer" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="LicensePlate" placeholder="Registrerings Nummer" type="text" required>
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="ChassiNumber" placeholder="Chassinummer" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="ChassiNumber" placeholder="Chassi Nummer" type="text" required>
                     </div>
 
 
@@ -74,12 +74,11 @@
                     </div>
                     <div class="form-group col-sm-4 ">
                         <select name="ChooseServiceCategory" class="form-control " id="" required>
-                            <option>Välja Servicekategori</option>
+                            <option>Service Kategori</option>
                             @foreach (var x in Model)
                             {
                                 <option value="@x.ChooseCategory">@x.ChooseCategory</option>
                             }
-
                         </select>
                     </div>
 
@@ -89,13 +88,21 @@
 
                 <div class="row" id="frm_pad">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="PostCode" placeholder="Postkod" type="text" required>   
+                        <input class="form-control input-lg focus" id="" name="Postcode" placeholder="Postkod" type="text" required>
                     </div>
 
                     <div class="col-sm-4 form-group">
                         <input class="form-control input-lg focus" id="" name="County" placeholder="Län" type="text" required>
                     </div>
-                  
+                    <div class="form-group col-sm-4 ">
+                        <select name="Service" class="form-control" id="" required>
+                            <option>Service</option>
+                            @foreach (var x in Model)
+                            {
+                                <option value="@x.ServiceName">@x.ServiceName</option>
+                            }
+                        </select>
+                    </div>
 
                 </div>
 
@@ -108,7 +115,7 @@
                 <!-- 7th r -->
                 <div class="row" id="frm_pad" style="padding-bottom:12px;">
                     <div class="col-sm-12 form-group">
-                        <textarea style="height:100px;" class="form-control input-lg focus" id="" name="Description" placeholder="Beskrivning" rows="5"></textarea>
+                        <textarea style="height:100px;" class="form-control input-lg focus" id="" name="Description" placeholder="Noteringar" rows="5"></textarea>
                     </div>
                 </div>
                 <!-- 8th r -->

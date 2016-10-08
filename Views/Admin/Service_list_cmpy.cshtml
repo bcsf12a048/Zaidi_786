@@ -25,24 +25,81 @@
 
             <div class="row" id="frm_pad" style="padding-top:12px">
 
-                <div class="form-group col-sm-6 ">
-                    <select name="" class="form-control " id="">
-                        <option value="">Tjänste Kategori</option>
-                        <option value="">A</option>
-                        <option value="">B</option>
+                <div class="form-group col-sm-4 ">
+                    <select name="" class="form-control " id="as">
+                        <option value="">TjänsteKategori</option>
+                        @foreach (var x in Model)
+                        { 
+                        <option value="@x.ChooseCategory">@x.ChooseCategory</option>
+                        }
+                         
                     </select>
 
 
 
                 </div>
-                <div class="form-group col-sm-6 ">
-                    <select name="CompanyName" class="form-control " id="" required>
+                <div class="form-group col-sm-4 ">
+                    <select name="" class="form-control " id="asd" required>
                         <option>Företags Namn</option>
                         @foreach (var x in Model)
                         {
                             <option value="@x.CompanyName">@x.CompanyName</option>
                         }
                     </select>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search_service_list_cmpy()">Sok</button>
+                    <script>
+
+                        function Search_service_list_cmpy() {
+
+                            var Cate = $("#as").val().toString();
+                            var Catee = $("#asd").val().toString();
+
+                            $.getJSON("/Admin/SearchResult_service_list_cmpy",
+
+                                {
+
+                                    Cate: Cate,
+                                    Catee:Catee
+                                },
+
+                                function (data) {
+                                    //   alert(data.length);
+                                    //console.log(data);
+                                    if (data != null) {
+
+                                        var str = " ";
+                                        var str1 = " ";
+                                        for (var i = 0; i < data.length; i++) {
+                                            str += "<tr>"
+                                            str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ChooseCategory + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ServiceName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].PriceExVAT + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].PriceIncVAT + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].CompanyName + "</td>";
+                                            str += "<td id='r" + i + "'>";
+                                            str += "<div class='dropdown'>";
+                                            str += "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Action<span class='caret'></span></button>";
+                                            str += "<ul class='dropdown-menu'>";
+                                            str += "<li><a href='/Admin/Service_list_cmpy_update/" + data[i].Id + "'>Redigera</a></li>";
+                                            str += "<li><a href='/Admin/Service_list_cmpy_delete/" + data[i].Id + "'>Radera</a></li>";
+                                            str += "</ul>";
+                                            str += "</div>"
+                                            str += "</td>";
+                                            str += "</tr>";
+                                        }
+                                    }
+                                    else if (data == false) {
+                                        alert("Sorrry no record");
+                                    }
+                                    $('#service_cmpy').html(str);
+                                });
+
+                        };
+                    </script>
+
                 </div>
             </div>
         </div>
@@ -62,7 +119,7 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="service_cmpy">
                     @foreach (var x in Model)
                     {
                         <tr>
@@ -72,7 +129,7 @@
                             <td>@x.PriceExVAT</td>
                             <td>@x.PriceIncVAT</td>
                             <td>@x.CompanyName</td>
-                            
+
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Åtgärd<span class="caret"></span></button>
@@ -82,7 +139,7 @@
                                     </ul>
                                 </div>
                             </td>
-                          
+
                         </tr>
 
                     }

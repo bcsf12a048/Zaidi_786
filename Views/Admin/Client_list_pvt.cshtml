@@ -23,6 +23,9 @@
 
             <div class="row" id="frm_pad" style="padding-top:12px">
                 <div class="col-sm-4 form-group">
+                    <input class="form-control input-lg focus" id="alii" name="" placeholder="Search" type="text">
+                </div>
+                 <div class="col-sm-4 form-group">
 
                 </div>
 
@@ -30,14 +33,75 @@
 
                 </div>
                 <div class="col-sm-4 form-group">
-                    <input class="form-control input-lg focus" id="" name="" placeholder="Search" type="text">
+                    <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search_client_nw_od()">Sok</button>
+                    <script>
+
+                        function Search_client_nw_od() {
+
+                            var Cate = $("#alii").val().toString();
+                            
+
+                            $.getJSON("/Admin/SearchResult_new_client_pvt",
+
+                                {
+
+                                    Cate: Cate
+                                },
+
+                                function (data) {
+                                  //   alert(data.length);
+                                   //console.log(data);
+                                    if (data != null)
+                                    {
+
+                                        var str = " ";
+                                        var str1 = " ";
+                                        for (var i = 0; i < data.length; i++)
+                                        {
+                                            str += "<tr>"
+                                            str += "<td id='r" + i + "'>" + data[i].Licenseplate + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].PhoneNumber + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Mobile + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Email + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Street_Address + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].City + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Postcode + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].County + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
+                                            str += "<td id='r" + i + "'>";
+                                            str += "<div class='dropdown'>";
+                                            str += "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Action<span class='caret'></span></button>";
+                                            str +="<ul class='dropdown-menu'>";
+                                            str += "<li><a href='/Admin/Client_list_pvt_update/" + data[i].Id + "'>Redigera</a></li>";
+                                            str += "<li><a href='/Admin/Client_list_pvt_delete/" + data[i].Id + "'>Radera</a></li>";
+                                            str += "</ul>";
+                                            str +="</div>"
+                                            str += "</td>";
+                                            str += "</tr>";
+                                        }
+                                    }
+                                    else if (data == false) {
+                                        alert("Sorrry no record");
+                                    }
+                                    $('#client_nw').html(str);
+                                });
+
+                        };
+                    </script>
+
                 </div>
+
+
+
 
 
             </div>
         </div>
 
-        <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
+        <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto; height:500px;">
 
             <table class="table table-striped">
                 <caption>&nbsp;</caption>
@@ -60,35 +124,36 @@
 
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var x in Model)
-                    {
-                        <tr>
-                            <td>@x.Licenseplate</td>
-                            <td>@x.ChassiNumber</td>
-                            <td>@x.FirstName</td>
-                            <td>@x.LastName</td>
-                            <td>@x.PhoneNumber</td>
-                            <td>@x.Mobile</td>
-                            <td>@x.Email</td>
-                            <td>@x.Street_Address</td>
-                            <td>@x.City</td>
-                            <td>@x.Postcode</td>
-                            <td>@x.County</td>
-                            <td>@x.Id</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/Admin/Client_list_pvt_update/@x.Id">Edit</a></li>
-                                        <li><a href="/Admin/Client_list_pvt_delete/@x.Id">Delete</a></li>
-                                    </ul>
-                                </div>
-                            </td>
+                <tbody id="client_nw">
+                  @foreach (var x in Model)
+    {
+     <tr>
+             <td>@x.Licenseplate</td>
+             <td>@x.ChassiNumber</td>
+             <td>@x.FirstName</td>
+             <td>@x.LastName</td>
+             <td>@x.PhoneNumber</td>
+             <td>@x.Mobile</td>
+             <td>@x.Email</td>
+             <td>@x.Street_Address</td>
+             <td>@x.City</td>
+             <td>@x.Postcode</td>
+             <td>@x.County</td>
+             <td>@x.Id</td>
+             <td>
+                 <div class="dropdown">
+                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                         <li><a href="/Admin/Client_list_pvt_update/@x.Id">Redigera</a></li>
+                         <li><a href="/Admin/Client_list_pvt_delete/@x.Id">Radera</a></li>
+                     </ul>
+                 </div>
+             </td>
 
-                        </tr>
+         </tr>
+                     }
 
-                    }
+
                 </tbody>
             </table>
 
