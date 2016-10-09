@@ -35,7 +35,7 @@
 
                     <div class="form-group col-sm-4 ">
                         <select name="ServiceCategory" class="form-control " id="" required>
-                            <option> Tjänste Kategori</option>
+                            <option value=""> Tjänste Kategori</option>
                            @foreach(var x in Model)
                              {
                             <option value="@x.ChooseCategory">@x.ChooseCategory</option>
@@ -52,10 +52,10 @@
 
                     <div class="col-sm-4 form-group">
                         <select name="Service" class="form-control " id="" required>
-                            <option value="">Service</option>
+                            <option value="">Service Name</option>
                             @foreach (var x in Model)
                             {
-                                <option value="@x.Service">@x.Service</option>
+                                <option value="@x.ServiceName">@x.ServiceName</option>
                             }
                         </select>
                     </div>

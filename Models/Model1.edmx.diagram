@@ -8,22 +8,22 @@
         <EntityTypeShape EntityType="Database1Model.client_nwad_cmpy_counter" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="Database1Model.client_nwod_pvt" Width="1.5" PointX="3" PointY="34.625" />
         <EntityTypeShape EntityType="Database1Model.client_nwOrd_pvt_counter" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Database1Model.Invoice_crt_cmpy" Width="1.5" PointX="8.25" PointY="8.75" />
-        <EntityTypeShape EntityType="Database1Model.Invoice_crt_pvt" Width="1.5" PointX="8.25" PointY="14.125" />
         <EntityTypeShape EntityType="Database1Model.Service_add_pakg_Company" Width="1.5" PointX="0.75" PointY="10.5" />
         <EntityTypeShape EntityType="Database1Model.Service_add_pakg_Pvt" Width="1.5" PointX="3.75" PointY="10.625" />
         <EntityTypeShape EntityType="Database1Model.User" Width="1.5" PointX="0.75" PointY="13.875" />
         <AssociationConnector Association="Database1Model.FK_client_nwod_pvt" />
-        <AssociationConnector Association="Database1Model.FK_Invoice_crt_cmpy" />
-        <AssociationConnector Association="Database1Model.FK_Invoice_crt_pvt" />
         <EntityTypeShape EntityType="Database1Model.client_nwad_cmpy" Width="1.5" PointX="3" PointY="5.5" />
         <AssociationConnector Association="Database1Model.FK_client_nwad_cmpy" />
         <EntityTypeShape EntityType="Database1Model.NwOd_private" Width="1.5" PointX="3" PointY="19.25" />
-        <AssociationConnector Association="Database1Model.FK_Invoice_crt_pvt_T" />
         <AssociationConnector Association="Database1Model.FK_NwOd_private_" />
         <EntityTypeShape EntityType="Database1Model.NwOd_company" Width="1.5" PointX="3" PointY="13.75" />
-        <AssociationConnector Association="Database1Model.FK_Invoice_crt_cmpy_1" />
         <AssociationConnector Association="Database1Model.FK_NwOd_company" />
+        <EntityTypeShape EntityType="Database1Model.Invoice_crt_pvt" Width="1.5" PointX="5.25" PointY="17.375" />
+        <AssociationConnector Association="Database1Model.FK_Invoice_crt_pvt" />
+        <AssociationConnector Association="Database1Model.FK_Invoice_crt_pvt_T" />
+        <EntityTypeShape EntityType="Database1Model.Invoice_crt_cmpy" Width="1.5" PointX="6.25" PointY="12.5" />
+        <AssociationConnector Association="Database1Model.FK_Invoice_crt_cmpy" />
+        <AssociationConnector Association="Database1Model.FK_Invoice_crt_cmpy_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

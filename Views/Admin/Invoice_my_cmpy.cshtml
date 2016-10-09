@@ -18,7 +18,7 @@
 
     <div class="container-fluid  " style="background-color: white; overflow-y: auto; overflow-x: auto; height: 500px;">
         <!-- 1st r -->
-        <form action="#" method="post">
+        <form >
             <div class="col-sm-12">
 
                 <!-- 1st r -->
@@ -26,11 +26,12 @@
                 <div class="row" id="frm_pad" style="padding-top:12px">
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="todate" placeholder="t.o.m Datum" type="date">
+                        <input class="form-control input-lg focus" id="date4"  placeholder="f.o.m Datum" type="date">
                     </div>
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="fromdate" placeholder="f.o.m Datum" type="date">
+                        <input class="form-control input-lg focus" id="date2"  placeholder="t.o.m Datum" type="date">
                     </div>
+                   
                 </div>
 
 
@@ -38,8 +39,83 @@
 
             <div class="row" id="frm_pad" style="padding-top:15px;">
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-success btn-rounded pull-right" type="submit">Sok</button>
+                    <button id="search" class="btn btn-success btn-rounded pull-right" type="button" onclick="Search_Invoice_cmpy_date()">Sok</button>
+                    <script>
+
+                        function Search_Invoice_cmpy_date() {
+
+                            var c = $("#date4").val().toString();
+                            var d = $("#date2").val().toString();
+
+                            $.getJSON("/Admin/SearchResult_Invoice_cmpy_date",
+
+                                {
+
+                                    c: c,
+                                    d: d
+
+                                },
+
+                                function (data) {
+
+                                    alert(data.length);
+                                    console.log(data);
+                                    if (data != null) {
+
+                                        var str = " ";
+                                        var str1 = " ";
+                                        for (var i = 0; i < data.length; i++) {
+                                            /* mNewObj = document.createElement('tr');
+                                              mNewObj.id = "BBB" + 1;
+                                              mNewObj.innerHTML = "<td id='r" + i + "'>" + data[i].date + "</td>;<td id='r" + i + "'>" + data[i].LicensePlate + "</td>;<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>;<td id='r" + i + "'>" + chanum + "</td>;";
+                                              mNewObj.style.visibility = "show";
+                                              document.getElementById("t1").appendChild(mNewObj);*/
+                                            //   var invoicedate = new Date(data[i].InvoiceDate);
+
+                                            var din = data[i].InvoiceDate;
+                                            var dex = data[i].ExpDate;
+                                            var expdate = new Date(parseInt(dex.substr(6)));
+                                            var invoicedate = new Date(parseInt(din.substr(6)));
+                                            str += "<tr>"
+                                            str += "<td id='r" + i + "'>" + data[i].order_no + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].CompanyNumber + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].OrdersForm + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Orderto + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Invoice_no + "</td>";
+
+                                            str += "<td id='r" + i + "'>" + invoicedate + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].OCR + "</td>";
+                                            str += "<td id='r" + i + "'>" + expdate + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].OurReference + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ContactPerson + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Interest + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Reminderfee + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].status + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].username + "</td>";
+                                            str += "<td id='r" + i + "'>";
+                                            str += "<div class='dropdown'>";
+                                            str += "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Action<span class='caret'></span></button>";
+                                            str += "<ul class='dropdown-menu'>";
+                                            str += "<li><a href='/Admin/Invoice_my_cmpy_update/" + data[i].Invoice_no + "'>Redigera</a></li>";
+                                            str += "<li><a href='/Admin/Invoice_my_cmpy_delete/" + data[i].Invoice_no + "'>Radera</a></li>";
+                                            str += "</ul>";
+                                            str += "</div>"
+                                            str += "</td>";
+                                            str += "</tr>";
+                                        }
+
+                                    }
+                                    else if (data == false) {
+                                        alert("Sorrry no record");
+                                    }
+                                    $('#t1324').html(str);
+                                });
+
+                        };
+                    </script>
+
                 </div>
+
 
             </div>
         </form>
@@ -72,7 +148,7 @@
 
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="t1324">
                 @foreach (var x in Model)
                 {
                     <tr>
