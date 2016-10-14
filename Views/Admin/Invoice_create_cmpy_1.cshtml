@@ -15,7 +15,7 @@
         <li class=""><a id="b1" href="/Admin/Invoice_create_pvt_1">Privat</a></li>
         <li class="active"><a id="b2" href="/Admin/Invoice_create_cmpy_1">Företag</a></li>
     </ul>
-    <div class="container-fluid  " style="background-color: white; overflow-y: auto; overflow-x: auto; height: 500px;">
+    <div class="container-fluid  " style="background-color: white; overflow-y: auto; overflow-x: auto;">
 
         <!-- Form Start -->
         <form action="/Admin/Invoice_create_cmpy_save_1" method="post">
@@ -37,17 +37,23 @@
 
 
 
-                    <div class="row" id="frm_pad" style="padding-top:12px">
+                    <div class="row" id="frm_pad" >
                         <div class="col-sm-4 form-group">
-                            <input class="form-control input-lg focus" id="" name="CompanyNumber" placeholder=" Företag Nummer" type="text" required>
+                            <select name="CompanyNumber" class="form-control " id="" required>
+                                <option value="">Företagsnamn</option>
+                                @foreach (var x in Model)
+                                {
+                                    <option value="@x.ChooseCompany">@x.ChooseCompany</option>
+                                }
+                            </select>
                         </div>
 
                         <div class="col-sm-4 form-group">
-                            <input class="form-control input-lg focus" id="" name="OrdersForm" placeholder="Ordrar f.o.m" type="text" required>
+                            <input class="form-control input-lg focus" id="" name="OrdersForm" placeholder="Ordrar f.o.m" type="date" required>
                         </div>
 
                         <div class="col-sm-4 form-group">
-                            <input class="form-control input-lg focus" id="" name="Orderto" placeholder="Ordrar t.o.m" type="text" required>
+                            <input class="form-control input-lg focus" id="" name="Orderto" placeholder="Ordrar t.o.m" type="date" required>
                         </div>
 
 
@@ -70,7 +76,7 @@
 
                     <!-- 3rd r -->
 
-                    <div class="row" id="frm_pad" style="padding-bottom:12px;">
+                    <div class="row" id="frm_pad" >
                         <div class="col-sm-4 form-group">
                             <input class="form-control input-lg focus" id="" name="ExpDate" placeholder="Förfallo Datum" type="date" required>
                         </div>
@@ -80,8 +86,14 @@
                         </div>
 
                         <div class="col-sm-4 form-group">
-                            <input class="form-control input-lg focus" id="" name="ContactPerson" placeholder="Kontakt Person" type="text" required>
-                        </div>
+                            <select name="ContactPerson" class="form-control " id="" required>
+                                <option value="">Kontakt Person</option>
+                                @foreach (var x in Model)
+                                {
+                                    <option value="@x.ContactPerson">@x.ContactPerson</option>
+                                }
+                            </select>
+                          </div>
 
                     </div>
 

@@ -28,14 +28,13 @@
                     <div class="form-group col-sm-4 " style="padding-top:15px">
                         <select id="alii" name="" class="form-control ">
                             <option>Service Category</option>
-                            <option value="Tvätta Services">Tvätta Services</option>
-                            <option value="Paint jobb">Paint jobb</option>
+                            <option value="Tvätta Tjänster">Tvätta Tjänster</option>
+                            <option value="Lack">Lack</option>
                             <option value="Reparation">Reparation</option>
-                            <option value="Renovering">Renovering</option>
-                            <option value="Kontroll/Check">Kontroll/Check</option>
-                            <option value="Däck">Däck</option>
-                            <option value="Service">Service</option>
                             <option value="Kontroll">Kontroll</option>
+                            <option value="Däck">Däck</option>
+                            <option value=" Service"> Service</option>
+                            <option value="Besiktning">Besiktning</option>
                             </select>
                     </div>
 
@@ -74,7 +73,7 @@
 
 
                       
-                        $.getJSON("/Client/SearchResultr",
+                        $.getJSON("/Client/SearchResult_ord_rep_pvt",
 
                             {
 
@@ -84,19 +83,22 @@
                             },
 
                             function (data) {
-                              alert(data.length);
-                               // console.log(data);
+///alert(data.length);
+   //                             console.log(data);
                                 if (data != null) {
 
                                     var str = " ";
                                     var str1 = " ";
                                     for (var i = 0; i < data.length; i++) {
+                                        var din = data[i].date;
+                                        var date = new Date(parseInt(din.substr(6)));
+                                     
                                         str += "<tr>"
                                         str += "<td id='r" + i + "'>" + data[i].order_no + "</td>";
-                                        str += "<td id='r" + i + "'>" + data[i].date + "</td>";
+                                        str += "<td id='r" + i + "'>" + date + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].LicensePlate + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].ChassiNumber + "</td>";
-                                        str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
+                                       str += "<td id='r" + i + "'>" + data[i].z[0].PriceExVAT + "</td>";
 
                                         str += "</tr>";
                                     }

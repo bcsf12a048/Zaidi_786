@@ -19,36 +19,6 @@
 
             <!-- 1st r -->
 
-            <div class="row" id="frm_pad" style="padding-top:12px">
-
-                <div class="form-group col-sm-6 ">
-                    <select name="" class="form-control " id="">
-                        <option value="">Service Kategori</option>
-                    @foreach (var x in Model)
-{
-    <option value="@x.Service_add_pakg_Company.ChooseCategory">@x.Service_add_pakg_Company.ChooseCategory</option>
-}
-                    </select>
-
-
-
-
-                </div>
-
-                <div class="form-group col-sm-6 ">
-                    <select name="CompanyName" class="form-control " id="" required>
-                        <option>Företags Namn</option>
-                        @foreach (var x in Model)
-                        {
-                            <option value="@x.Service_add_pakg_Company.CompanyName">@x.Service_add_pakg_Company.CompanyName</option>
-                        }
-                    </select>
-                </div>
-
-
-
-            </div>
-        </div>
         <div class="container-fluid  " style="background-color:white ;overflow-y:auto ;overflow-x:auto;">
 
             <table class="table table-striped">
@@ -88,4 +58,5 @@
 
         </div>
     </div>
+</div>
 </div>

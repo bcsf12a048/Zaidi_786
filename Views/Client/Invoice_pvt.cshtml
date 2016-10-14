@@ -67,13 +67,17 @@
                                     var str = " ";
                                   //  alert(data[1].a[0].Address);
                                    // alert(data[1].a[0].b[0].PriceExVAT);
-                                    for (var i = 0; i <data.length; i++) {
+                                    for (var i = 0; i < data.length; i++) {
+                                        var din1= data[i].InvoiceDate;
+                                        var dex1 = data[i].Exp_Date;
+                                        var expdate1 = new Date(parseInt(dex1.substr(6)));
+                                        var invoicedate1 = new Date(parseInt(din1.substr(6)));
                                         str += "<tr>"
                                         str += "<td id='r" + i + "'>" + data[i].Order_no + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].Invoice_no + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].OCR + "</td>";
-                                        str += "<td id='r" + i + "'>" + data[i].InvoiceDate + "</td>";
-                                        str += "<td id='r" + i + "'>" + data[i].Exp_Date + "</td>";
+                                        str += "<td id='r" + i + "'>" + invoicedate1 + "</td>";
+                                        str += "<td id='r" + i + "'>" + expdate1 + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].OurReference + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].IntrestRate + "</td>";
                                         str += "<td id='r" + i + "'>" + data[i].RemainderFee + "</td>";
@@ -82,7 +86,10 @@
 
                                         str += "</tr>";
                                     }
-                                    
+                                    var din12 = data[0].InvoiceDate;
+                                    var dex12 = data[0].Exp_Date;
+                                    var expdate12 = new Date(parseInt(dex1.substr(6)));
+                                    var invoicedate12 = new Date(parseInt(din1.substr(6)));
                                     strr += "<div class='container-fluid col-lg-12' id='print1'>";
                                     strr += "<div style='padding-left:25px'>";
                                     strr += "<div class='row' id=''>";
@@ -91,9 +98,9 @@
                                     strr += "<div class='row' id=''><div class='col-xs-4'></div>\<div class='col-xs-4'></div><div class='col-xs-4'><h1><span>FAKTURA</span></h1></div></div>";
                                     strr += "<div class='row ' id=''><div class='col-xs-7'><table style='border: 1px solid #000;margin:5px'><tbody style='margin:8px'>";
                                     strr += "<tr><td style='padding-left:5px' class='col-xs-2'><b>Datum</b></td><td style='padding-left:5px' class='col-xs-2'><b>Intressera</b></td><td style='padding-left:5px' class='col-xs-2'><b>Faktura&nbsp;Antal</b></td></tr>";
-                                    strr += "<tr><td style='padding-left:5px' class='col-xs-2'>" + data[0].InvoiceDate + "</td><td style='padding-left:5px' class='col-xs-2'>" + data[0].IntrestRate + "</td><td style='padding-left:5px' class='col-xs-2'>"+data[0].Invoice_no+"</td></tr>";
+                                    strr += "<tr><td style='padding-left:5px' class='col-xs-2'>" + invoicedate12 + "</td><td style='padding-left:5px' class='col-xs-2'>" + data[0].IntrestRate + "</td><td style='padding-left:5px' class='col-xs-2'>" + data[0].Invoice_no + "</td></tr>";
                                     strr += "<tr><td style='padding-left:5px' class='col-xs-2'><b>För&nbsp;Antal</b></td><td style='padding-left:5px' class='col-xs-2'><b>På&nbsp;Grund&nbsp;Av&nbsp;Datum</b></td><td style='padding-left:5px' class='col-xs-2'><b>Vår&nbsp;Referens</b></td></tr>";
-                                    strr += "<tr><td style='padding-left:5px' class='col-xs-2'>"+data[0].Order_no+"</td><td style='padding-left:5px' class='col-xs-2'>"+data[0].Exp_Date+"</td><td style='padding-left:5px' class='col-xs-2'>"+data[0].OurReference+"</td></tr>";
+                                    strr += "<tr><td style='padding-left:5px' class='col-xs-2'>" + data[0].Order_no + "</td><td style='padding-left:5px' class='col-xs-2'>" + expdate12 + "</td><td style='padding-left:5px' class='col-xs-2'>" + data[0].OurReference + "</td></tr>";
                                     strr += "</tbody></table></div>";
                                     strr += "<div class='col-xs-4' style='padding-right:0px'><table style='border: 1px solid #000;margin:5px'><thead style='background-color:#333;color:white'>";
                                     strr += "<tr><th style='padding-left:5px' class='col-xs-4'>Adress</th></tr></thead><tbody style='padding:5px'>";

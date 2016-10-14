@@ -35,15 +35,15 @@
 
                 <div class="row" id="frm_pad" style="padding-top:12px">
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="CompanyNumber" placeholder=" Företag Nummer" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="CompanyNumber" value="@Model.ChooseCompany" placeholder="Företagsnamn" type="text" readonly>
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="OrdersForm" placeholder="Ordrar f.o.m" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="OrdersForm" placeholder="Ordrar f.o.m" type="date" required>
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="Orderto" placeholder="Ordrar t.o.m" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="Orderto" placeholder="Ordrar t.o.m" type="date" required>
                     </div>
 
 
@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="col-sm-4 form-group">
-                        <input class="form-control input-lg focus" id="" name="ContactPerson" placeholder="Kontakt Person" type="text" required>
+                        <input class="form-control input-lg focus" id="" name="ContactPerson" value="@Model.ContactPerson" placeholder="Kontakt Person" type="text" readonly>
                     </div>
 
                 </div>
